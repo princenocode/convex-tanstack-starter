@@ -100,3 +100,14 @@ authorization → reactive query in the UI).
 
 > Note: CI typecheck/build require a Convex deployment. Provide a `CONVEX_DEPLOY_KEY`
 > (and the `VITE_CONVEX_*` env) so the workflow can run `convex codegen`.
+
+## AI agent guidance
+
+`CLAUDE.md`, `AGENTS.md`, and `.cursor/rules/karpathy.mdc` encode the philosophy for
+coding agents. The template also ships **Claude Code Agent Skills** in `.claude/skills/`:
+
+| Skill                 | When it applies                                                      |
+| --------------------- | -------------------------------------------------------------------- |
+| `karpathy-guidelines` | writing/refactoring any code — KISS/YAGNI, boundaries, security      |
+| `new-feature`         | adding a new vertical-slice feature (front + Convex back) per §11    |
+| `convex-function`     | writing an authorization-first Convex query/mutation/action (§5/§12) |
