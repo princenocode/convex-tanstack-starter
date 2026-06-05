@@ -1,0 +1,2 @@
+# Local safety net before sharing (CONVENTIONS.md §10).
+pnpm turbo run typecheck test build

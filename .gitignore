@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+.output/
+.vinxi/
+.tanstack/
+.turbo/
+*.tsbuildinfo
+
+# Convex generated code (regenerated via `npx convex dev`)
+**/convex/_generated/
+
+# Test coverage
+coverage/
+
+# Caches
+.eslintcache
+
+# Environment — never commit real secrets (see .env.example)
+.env
+.env.local
+.env.*.local
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*

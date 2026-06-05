@@ -1,0 +1,7 @@
+{
+  "extends": "@my-sample/tsconfig/react.json",
+  "compilerOptions": {
+    "types": []
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
