@@ -1,6 +1,6 @@
 ---
 name: convex-function
-description: Use when writing a Convex query, mutation, or action in packages/backend. Enforces authorization-first, argument + business validation, and pure logic in model.ts, per CONVENTIONS §5 / §12.
+description: Use when writing a Convex query, mutation, or action in packages/backend. Enforces authorization-first, argument + business validation, and pure logic in model.ts, per GUIDELINES §5 / §12.
 ---
 
 # Write a Convex function
@@ -41,4 +41,4 @@ call. Footgun: exposing as `public` what should be `internal`.
 - Pattern: `packages/backend/convex/tasks/mutations.ts` (authz + Zod + ownership + model),
   `queries.ts` (index-scoped read), `model.ts` (pure builder + test).
 - `requireUser`: `packages/backend/convex/auth.ts`.
-- Rules: `CONVENTIONS.md` §5, §12.1, §12.4.
+- Rules: `docs/GUIDELINES.md` §5, §12.1, §12.4.

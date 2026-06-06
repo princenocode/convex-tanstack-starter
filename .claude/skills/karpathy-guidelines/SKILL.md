@@ -6,7 +6,7 @@ description: Apply when writing or refactoring ANY code in this repo — the eng
 # Engineering philosophy
 
 Write the simplest thing that works. These rules override any instinct to
-generalize early. `CONVENTIONS.md` (§1, §2, §12) is the authoritative reference.
+generalize early. `docs/GUIDELINES.md` (§1, §2, §12) is the authoritative reference.
 
 ## Principles
 

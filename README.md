@@ -4,7 +4,7 @@ A feature-first monorepo template: **TanStack Start** (React) on **Convex**
 (realtime backend/DB), authenticated with **Better Auth** (`@convex-dev/better-auth`),
 with shadcn/ui, Zod, React Hook Form, and a full quality/CI guard-rail layer.
 
-See [`CONVENTIONS.md`](./CONVENTIONS.md) for the authoritative architecture and
+See [`docs/GUIDELINES.md`](./docs/GUIDELINES.md) for the authoritative architecture and
 rules, and [`CLAUDE.md`](./CLAUDE.md) for the AI-agent summary.
 
 ## Stack
@@ -28,7 +28,7 @@ packages/config/           eslint / tsconfig / prettier presets
 ```
 
 Each feature is a vertical slice exposing a single public `index.ts`; ESLint
-`boundaries` enforces the isolation rules (see CONVENTIONS §2).
+`boundaries` enforces the isolation rules (see GUIDELINES §2).
 
 ## Getting started
 
@@ -50,7 +50,7 @@ npx convex dev        # log in, create/select a project; generates convex/_gener
 
 ### 2. Set Convex-side secrets
 
-Secrets live on Convex, never in `.env` (CONVENTIONS §12.2):
+Secrets live on Convex, never in `.env` (GUIDELINES §12.2):
 
 ```bash
 npx convex env set BETTER_AUTH_SECRET "$(openssl rand -base64 32)"
@@ -106,8 +106,8 @@ authorization → reactive query in the UI).
 `CLAUDE.md`, `AGENTS.md`, and `.cursor/rules/karpathy.mdc` encode the philosophy for
 coding agents. The template also ships **Claude Code Agent Skills** in `.claude/skills/`:
 
-| Skill                 | When it applies                                                      |
-| --------------------- | -------------------------------------------------------------------- |
-| `karpathy-guidelines` | writing/refactoring any code — KISS/YAGNI, boundaries, security      |
-| `new-feature`         | adding a new vertical-slice feature (front + Convex back) per §11    |
-| `convex-function`     | writing an authorization-first Convex query/mutation/action (§5/§12) |
+| Skill                 | When it applies                                                                 |
+| --------------------- | ------------------------------------------------------------------------------- |
+| `karpathy-guidelines` | writing/refactoring any code — KISS/YAGNI, boundaries, security                 |
+| `new-feature`         | adding a new vertical-slice feature (front + Convex back) per GUIDELINES §11    |
+| `convex-function`     | writing an authorization-first Convex query/mutation/action (GUIDELINES §5/§12) |

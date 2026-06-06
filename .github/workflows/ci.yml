@@ -1,4 +1,4 @@
-# The real guard-rail (CONVENTIONS.md §10): lint + typecheck + test + build,
+# The real guard-rail (docs/GUIDELINES.md §10): lint + typecheck + test + build,
 # plus secret scanning and a dependency audit. Husky is local and bypassable;
 # this is not.
 name: CI
