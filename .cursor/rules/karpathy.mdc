@@ -1,0 +1,28 @@
+---
+description: Core engineering philosophy for this repo (KISS/YAGNI/DRY/SOLID, no premature abstraction).
+globs:
+alwaysApply: true
+---
+
+# Engineering philosophy
+
+Write the simplest thing that works. These rules override any instinct to
+generalize early. The full reference is `CONVENTIONS.md`.
+
+- **KISS** — the most direct solution. No indirection without a measurable benefit.
+- **YAGNI** — don't build for a hypothetical need. No "just in case" abstraction.
+- **DRY (rule of three)** — mutualize only after three real usages, never before.
+  A local duplication beats a wrong coupling between features.
+- **SOLID** — one responsibility per module; depend on interfaces where a swap is
+  likely (e.g. auth behind `useAuth` / `requireUser`).
+- **Short, intention-named functions.** Pure business logic in `model.ts` / `lib/`,
+  thin handlers and components around it.
+- **Deleting code is as valuable as adding it.** Prefer removing over accreting.
+- Comments and docs in **English**.
+
+# Boundaries (enforced)
+
+- A feature imports another feature only via its public `index.ts`.
+- Routes are thin; no business logic in routes.
+- Frontend reaches Convex only through the generated API, never backend internals.
+- Authorize and validate on the server; the client protects nothing.
