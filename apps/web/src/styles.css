@@ -348,6 +348,25 @@ a {
   background: color-mix(in oklab, var(--header-bg) 84%, transparent 16%);
 }
 
+/* Animated dash on the architecture diagram's type-safe API connector. */
+.flow-line {
+  stroke-dasharray: 5 7;
+  animation: flow-dash 1.5s linear infinite;
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .flow-line {
+    animation: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
