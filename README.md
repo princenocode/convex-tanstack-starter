@@ -35,42 +35,19 @@ Each feature is a vertical slice exposing a single public `index.ts`; ESLint
 Requires Node 22+ and pnpm 10+.
 
 ```bash
-pnpm install
+pnpm bootstrap
 ```
 
-### 1. Link a Convex deployment (required before typecheck / build / dev)
+That single command does everything interactively:
 
-The app and backend import Convex's generated API, which only exists after the
-Convex CLI runs. From `packages/backend`:
+1. installs dependencies,
+2. provisions a Convex deployment — asks for a project name for a **new** project,
+   or **re-links** an existing one (login pull) / lets you **paste** its URL,
+3. generates and pushes the Convex-side secrets (`BETTER_AUTH_SECRET`, `SITE_URL`),
+4. writes the public Convex URLs into `apps/web/.env.local`.
 
-```bash
-cd packages/backend
-npx convex dev        # log in, create/select a project; generates convex/_generated/
-```
-
-### 2. Set Convex-side secrets
-
-Secrets live on Convex, never in `.env` (GUIDELINES §12.2):
-
-```bash
-npx convex env set BETTER_AUTH_SECRET "$(openssl rand -base64 32)"
-npx convex env set SITE_URL http://localhost:3000
-```
-
-### 3. Configure the web env
-
-Copy `.env.example` to `apps/web/.env.local` and fill the **public** Convex URLs
-printed by `npx convex dev`:
-
-```
-VITE_CONVEX_URL=https://<deployment>.convex.cloud
-VITE_CONVEX_SITE_URL=https://<deployment>.convex.site
-VITE_SITE_URL=http://localhost:3000
-```
-
-### 4. Run
-
-Keep `npx convex dev` running in one terminal, then:
+It's idempotent — re-run it any time (it offers to reuse an already-linked
+deployment). Then start the app:
 
 ```bash
 pnpm dev          # starts apps/web on http://localhost:3000
@@ -79,6 +56,28 @@ pnpm dev          # starts apps/web on http://localhost:3000
 Sign up / sign in, then add and toggle tasks — the example `tasks` feature
 demonstrates the full stack (shared Zod schema → Convex function with
 authorization → reactive query in the UI).
+
+<details>
+<summary>Manual setup (what <code>pnpm bootstrap</code> automates)</summary>
+
+```bash
+pnpm install
+
+# 1. Link a Convex deployment (generates convex/_generated/, writes the URL)
+cd packages/backend
+npx convex dev        # log in, create/select a project
+
+# 2. Set Convex-side secrets (never in .env, GUIDELINES §12.2)
+npx convex env set BETTER_AUTH_SECRET "$(openssl rand -base64 32)"
+npx convex env set SITE_URL http://localhost:3000
+
+# 3. Copy .env.example to apps/web/.env.local and fill the public Convex URLs:
+#    VITE_CONVEX_URL=https://<deployment>.convex.cloud
+#    VITE_CONVEX_SITE_URL=https://<deployment>.convex.site
+#    VITE_SITE_URL=http://localhost:3000
+```
+
+</details>
 
 ## Scripts
 

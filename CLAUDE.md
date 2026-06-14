@@ -52,14 +52,17 @@ A feature is autonomous. **Hard rules (enforced by ESLint `boundaries`):**
 
 ## Running it
 
-This needs a Convex deployment before it can typecheck/build/run:
+This needs a Convex deployment before it can typecheck/build/run. One command
+provisions everything (install, link/create Convex project, push secrets, write
+`apps/web/.env.local`) — it's interactive and idempotent:
 
 ```bash
-pnpm install
-cd packages/backend && npx convex dev      # links a deployment, generates _generated/
-# set Convex-side secrets:
-npx convex env set BETTER_AUTH_SECRET "$(openssl rand -base64 32)"
-npx convex env set SITE_URL http://localhost:3000
-# fill apps/web/.env.local from .env.example (VITE_CONVEX_URL, VITE_CONVEX_SITE_URL, VITE_SITE_URL)
+pnpm bootstrap
 pnpm dev
 ```
+
+`pnpm bootstrap` (`scripts/bootstrap.mjs`) asks whether you already have a Convex
+project: **new** → asks for a name and creates it; **existing** → re-link via login
+or paste the URL. It then generates `BETTER_AUTH_SECRET`, runs `convex env set` for
+it and `SITE_URL`, and writes the public `VITE_*` URLs. Secrets never touch a
+`.env` file. See README "Manual setup" for the equivalent step-by-step.

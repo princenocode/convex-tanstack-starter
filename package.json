@@ -7,6 +7,7 @@
     "node": ">=22"
   },
   "scripts": {
+    "bootstrap": "node scripts/bootstrap.mjs",
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "eslint . --cache --max-warnings=0",
