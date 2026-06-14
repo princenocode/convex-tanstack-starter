@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guidance for AI agents working in this repo. `CONVENTIONS.md` is the full,
+Guidance for AI agents working in this repo. `docs/GUIDELINES.md` is the full,
 authoritative reference — read it. This file is the fast summary.
 
 ## Philosophy (apply, don't decorate)

@@ -1,6 +1,6 @@
 ---
 name: new-feature
-description: Use when adding a new feature / vertical slice to the app (a new domain area like "orders", "projects"). Scaffolds the mirrored frontend + Convex backend structure with feature isolation, per CONVENTIONS §11.
+description: Use when adding a new feature / vertical slice to the app (a new domain area like "orders", "projects"). Scaffolds the mirrored frontend + Convex backend structure with feature isolation, per GUIDELINES §11.
 ---
 
 # Add a new feature (vertical slice)
@@ -12,7 +12,7 @@ existing **`tasks`** feature is the canonical example — copy its shape:
 - Backend: `packages/backend/convex/tasks/*`
 - Shared schema: `packages/shared/src/schemas/task.ts`
 
-## Steps (CONVENTIONS §11)
+## Steps (GUIDELINES §11)
 
 1. **Define the shared schema** in `packages/shared/src/schemas/<feature>.ts` with Zod,
    infer the types (`z.infer`), and re-export from `packages/shared/src/index.ts`. This is

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repo follows the conventions in `CONVENTIONS.md` (authoritative) and the
+This repo follows the conventions in `docs/GUIDELINES.md` (authoritative) and the
 summary in `CLAUDE.md`. Any coding agent should read those first.
 
 Key expectations:

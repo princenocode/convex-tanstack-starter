@@ -1,4 +1,4 @@
-// pre-commit: fast, staged-only checks (CONVENTIONS.md §10).
+// pre-commit: fast, staged-only checks (docs/GUIDELINES.md §10).
 // ESLint auto-fixes (warnings do not block the commit — CI enforces them);
 // Prettier formats everything. The heavier typecheck/test/build run on pre-push.
 export default {

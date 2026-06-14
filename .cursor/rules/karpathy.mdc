@@ -7,7 +7,7 @@ alwaysApply: true
 # Engineering philosophy
 
 Write the simplest thing that works. These rules override any instinct to
-generalize early. The full reference is `CONVENTIONS.md`.
+generalize early. The full reference is `docs/GUIDELINES.md`.
 
 - **KISS** — the most direct solution. No indirection without a measurable benefit.
 - **YAGNI** — don't build for a hypothetical need. No "just in case" abstraction.

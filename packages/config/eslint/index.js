@@ -1,6 +1,6 @@
 // @ts-check
 /**
- * Shared flat ESLint config that ENFORCES CONVENTIONS.md, not just style:
+ * Shared flat ESLint config that ENFORCES docs/GUIDELINES.md, not just style:
  *  - file/function size guard-rails (§8)
  *  - feature isolation via eslint-plugin-boundaries (§2)
  *  - accessibility (§4) and the no-danger XSS guard (§12.3)
@@ -31,7 +31,7 @@ export const ignores = {
   ],
 };
 
-/** TypeScript baseline + the size/quality rules from CONVENTIONS §8. */
+/** TypeScript baseline + the size/quality rules from GUIDELINES §8. */
 export const base = tseslint.config(js.configs.recommended, ...tseslint.configs.recommended, {
   languageOptions: {
     ecmaVersion: 2023,
@@ -131,7 +131,7 @@ export function featureBoundaries({ appDir = 'apps/web' } = {}) {
         {
           default: 'disallow',
           message:
-            '${file.type} is not allowed to import ${dependency.type} (CONVENTIONS.md §2 feature isolation).',
+            '${file.type} is not allowed to import ${dependency.type} (docs/GUIDELINES.md §2 feature isolation).',
           rules: [
             {
               from: ['feature-internal'],
