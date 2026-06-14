@@ -2,6 +2,7 @@ import { betterAuth } from 'better-auth/minimal';
 import { createClient, type GenericCtx } from '@convex-dev/better-auth';
 import { convex } from '@convex-dev/better-auth/plugins';
 import { ConvexError } from 'convex/values';
+import { DEFAULT_USER_ROLE } from '@my-sample/shared';
 import authConfig from './auth.config';
 import { components } from './_generated/api';
 import { query } from './_generated/server';
@@ -21,6 +22,20 @@ export const createAuth = (ctx: GenericCtx<DataModel>) =>
     emailAndPassword: {
       enabled: true,
       requireEmailVerification: false,
+    },
+    // Default user schema (§6): every account carries an app-level `role`.
+    // `input: false` keeps it server-controlled — the client can never set or
+    // escalate it at sign-up; new users default to `operator`. This schema is
+    // deployed to the Convex component on the first `pnpm bootstrap`.
+    user: {
+      additionalFields: {
+        role: {
+          type: 'string',
+          required: false,
+          input: false,
+          defaultValue: DEFAULT_USER_ROLE,
+        },
+      },
     },
     plugins: [convex({ authConfig })],
   });

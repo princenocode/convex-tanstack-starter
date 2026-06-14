@@ -268,6 +268,12 @@ function done() {
   console.log(`\n${c.bold(c.green('✓ Bootstrap complete.'))}`);
   console.log(`\nNext:`);
   console.log(`  ${c.bold('pnpm dev')}   ${c.dim('→ app on http://localhost:3000')}`);
+  console.log(
+    c.dim(
+      '\nThe default user schema (email + password, role "operator") is deployed.\n' +
+        'Open the app and use "Sign up" to create the first account.',
+    ),
+  );
   console.log(c.dim('\nRe-running `pnpm bootstrap` is safe (idempotent).'));
 }
 
