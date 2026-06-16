@@ -15,8 +15,7 @@
   "scripts": {
     "dev": "convex dev",
     "codegen": "convex codegen",
-    "build": "convex codegen",
-    "typecheck": "convex codegen && tsc -p convex/tsconfig.json --noEmit",
+    "typecheck": "tsc -p convex/tsconfig.json --noEmit",
     "test": "vitest run"
   },
   "dependencies": {

@@ -10,8 +10,8 @@ dist/
 .turbo/
 *.tsbuildinfo
 
-# Convex generated code (regenerated via `npx convex dev`)
-**/convex/_generated/
+# Convex generated code is committed (per Convex guidance) so CI can typecheck
+# without a deployment; it is regenerated locally via `npx convex dev`.
 
 # Test coverage
 coverage/
