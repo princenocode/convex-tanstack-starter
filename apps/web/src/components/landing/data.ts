@@ -1,7 +1,7 @@
 // Static content for the landing page. Kept as plain data so the presentational
 // components stay declarative (and copy lives in one place).
 
-export const REPO_URL = 'https://github.com/princenocode/my_sample';
+export const REPO_URL = 'https://github.com/princenocode/convex-tanstack-starter';
 export const PROFILE_URL = 'https://github.com/princenocode';
 
 export type SocialIcon = 'github' | 'website' | 'x' | 'linkedin';

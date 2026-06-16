@@ -172,10 +172,10 @@ async function setupConvex() {
   const hasProject = await confirm('Do you already have a Convex project for this app?', false);
 
   if (!hasProject) {
-    let name = await ask('New Convex project name?', 'my-sample');
+    let name = await ask('New Convex project name?', 'convex-tanstack-starter');
     while (!/^[a-z0-9-]+$/.test(name)) {
       console.log(c.yellow('Use lowercase letters, digits and hyphens only.'));
-      name = await ask('New Convex project name?', 'my-sample');
+      name = await ask('New Convex project name?', 'convex-tanstack-starter');
     }
     console.log('Creating the Convex project (a browser window may open to log in) …');
     convexProvision(['--configure=new', '--project', name]);
@@ -280,7 +280,7 @@ function done() {
 // --- main -------------------------------------------------------------------
 
 try {
-  console.log(c.bold('\nmy-sample bootstrap\n'));
+  console.log(c.bold('\nconvex-tanstack-starter bootstrap\n'));
   preflight();
   install();
   const { canSetSecrets } = await setupConvex();

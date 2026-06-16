@@ -1,5 +1,5 @@
 import { v, ConvexError } from 'convex/values';
-import { createTaskSchema } from '@my-sample/shared';
+import { createTaskSchema } from '@convex-tanstack-starter/shared';
 import { mutation } from '../_generated/server';
 import type { MutationCtx } from '../_generated/server';
 import type { Id } from '../_generated/dataModel';

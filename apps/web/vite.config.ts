@@ -9,7 +9,11 @@ const config = defineConfig({
   // Bundle these during SSR: the Better Auth component (ESM resolution), and the
   // workspace packages that ship TypeScript source (so Vite transpiles them).
   ssr: {
-    noExternal: ['@convex-dev/better-auth', '@my-sample/ui', '@my-sample/shared'],
+    noExternal: [
+      '@convex-dev/better-auth',
+      '@convex-tanstack-starter/ui',
+      '@convex-tanstack-starter/shared',
+    ],
   },
   plugins: [devtools(), tailwindcss(), tanstackStart(), viteReact()],
 });

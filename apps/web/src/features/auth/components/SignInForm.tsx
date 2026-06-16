@@ -2,7 +2,7 @@ import { useState, type ComponentType } from 'react';
 import { useForm, type Resolver, type UseFormRegisterReturn } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff, Layers, Loader2, Lock, Mail, User } from 'lucide-react';
-import { Button } from '@my-sample/ui';
+import { Button } from '@convex-tanstack-starter/ui';
 import { signInSchema, signUpSchema, type CredentialsInput } from '../lib/schema';
 import { useAuth } from '../hooks/useAuth';
 import { PasswordStrength } from './PasswordStrength';

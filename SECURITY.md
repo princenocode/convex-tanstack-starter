@@ -5,7 +5,7 @@
 Please **do not** open a public issue for security vulnerabilities.
 
 Instead, report it privately via
-[GitHub's private vulnerability reporting](https://github.com/princenocode/my_sample/security/advisories/new)
+[GitHub's private vulnerability reporting](https://github.com/princenocode/convex-tanstack-starter/security/advisories/new)
 (Security → Report a vulnerability). We aim to acknowledge reports within a few
 days.
 

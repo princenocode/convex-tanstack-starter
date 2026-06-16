@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Button } from '@my-sample/ui';
+import { Button } from '@convex-tanstack-starter/ui';
 import { AuthBoundary, SignInForm, useAuth } from '#/features/auth';
 import { TasksPanel } from '#/features/tasks';
 import { AuthPage } from '#/components/auth-page/AuthPage';

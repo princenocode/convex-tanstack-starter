@@ -6,7 +6,7 @@
  *  - accessibility (§4) and the no-danger XSS guard (§12.3)
  *
  * Consumers import the preset they need and append project-specific bits:
- *   import { react, featureBoundaries } from '@my-sample/eslint-config';
+ *   import { react, featureBoundaries } from '@convex-tanstack-starter/eslint-config';
  *   export default [...react, featureBoundaries(), { ignores: [...] }];
  */
 import js from '@eslint/js';

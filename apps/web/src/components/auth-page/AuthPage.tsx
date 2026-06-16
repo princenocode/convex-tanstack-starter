@@ -38,7 +38,9 @@ function AuthHeader({ authControl }: { authControl?: ReactNode }) {
           style={{ color: 'var(--sea-ink)' }}
         >
           <BrandMark className="h-7 w-7" />
-          <span className="display-title text-lg font-bold tracking-tight">my-sample</span>
+          <span className="display-title text-lg font-bold tracking-tight">
+            convex-tanstack-starter
+          </span>
         </Link>
 
         <div className="flex items-center gap-3">
@@ -51,7 +53,7 @@ function AuthHeader({ authControl }: { authControl?: ReactNode }) {
           </Link>
           <a
             href={REPO_URL}
-            aria-label="View my-sample on GitHub"
+            aria-label="View convex-tanstack-starter on GitHub"
             target="_blank"
             rel="noreferrer"
             className="chip inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"

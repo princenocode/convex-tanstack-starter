@@ -41,12 +41,14 @@ function SiteHeader({ authControl }: { authControl?: ReactNode }) {
           style={{ color: 'var(--sea-ink)' }}
         >
           <BrandMark className="h-7 w-7" />
-          <span className="display-title text-lg font-bold tracking-tight">my-sample</span>
+          <span className="display-title text-lg font-bold tracking-tight">
+            convex-tanstack-starter
+          </span>
         </Link>
 
         <div className="flex items-center gap-3">
           {authControl}
-          <Chip href={REPO_URL} ariaLabel="View my-sample on GitHub">
+          <Chip href={REPO_URL} ariaLabel="View convex-tanstack-starter on GitHub">
             <GitHubMark className="h-4 w-4" />
             <span className="hidden sm:inline">GitHub</span>
           </Chip>

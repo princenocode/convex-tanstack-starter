@@ -2,7 +2,7 @@ import { betterAuth } from 'better-auth/minimal';
 import { createClient, type GenericCtx } from '@convex-dev/better-auth';
 import { convex } from '@convex-dev/better-auth/plugins';
 import { ConvexError } from 'convex/values';
-import { DEFAULT_USER_ROLE } from '@my-sample/shared';
+import { DEFAULT_USER_ROLE } from '@convex-tanstack-starter/shared';
 import authConfig from './auth.config';
 import { components } from './_generated/api';
 import { query } from './_generated/server';

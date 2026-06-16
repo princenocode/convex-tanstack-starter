@@ -37,8 +37,8 @@ existing **`tasks`** feature is the canonical example — copy its shape:
    index.ts      ★ PUBLIC API — the ONLY import surface from outside
    ```
 
-   Reuse primitives from `@my-sample/ui` (`Button`, `Spinner`, `cn`). Import the backend
-   API via `@my-sample/backend/api` and types via `@my-sample/backend/dataModel`.
+   Reuse primitives from `@convex-tanstack-starter/ui` (`Button`, `Spinner`, `cn`). Import the backend
+   API via `@convex-tanstack-starter/backend/api` and types via `@convex-tanstack-starter/backend/dataModel`.
 
 4. **Export only through `index.ts`.** Other features/routes import from
    `#/features/<feature>` (the barrel), never an internal file — enforced by ESLint

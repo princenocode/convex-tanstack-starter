@@ -21,7 +21,7 @@ The pattern lives in `packages/backend/convex/tasks/{queries,mutations,model}.ts
    line. Convex has NO row-level security — the check you write is the only thing stopping
    one user from touching another's data.
 2. **Validate args** with `v.*` (the boundary), then enforce business rules with the shared
-   Zod schema from `@my-sample/shared` (`schema.safeParse(args)`), throwing `ConvexError`
+   Zod schema from `@convex-tanstack-starter/shared` (`schema.safeParse(args)`), throwing `ConvexError`
    on failure (§6, §12.4).
 3. **Per-resource ownership check** when touching a specific row: load it, and if it's
    missing or not owned by `user._id`, throw `ConvexError('… not found')` — "not found"

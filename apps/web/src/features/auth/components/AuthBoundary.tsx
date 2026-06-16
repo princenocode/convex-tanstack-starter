@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Spinner } from '@my-sample/ui';
+import { Spinner } from '@convex-tanstack-starter/ui';
 import { useAuth } from '../hooks/useAuth';
 
 type AuthBoundaryProps = {

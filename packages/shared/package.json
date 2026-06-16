@@ -1,5 +1,5 @@
 {
-  "name": "@my-sample/shared",
+  "name": "@convex-tanstack-starter/shared",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -16,7 +16,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@my-sample/tsconfig": "workspace:*",
+    "@convex-tanstack-starter/tsconfig": "workspace:*",
     "typescript": "^5.7.3"
   }
 }

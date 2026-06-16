@@ -1,4 +1,4 @@
-# my_sample
+# convex-tanstack-starter
 
 A feature-first monorepo template: **TanStack Start** (React) on **Convex**
 (realtime backend/DB), authenticated with **Better Auth** (`@convex-dev/better-auth`),
@@ -10,7 +10,7 @@ rules, and [`CLAUDE.md`](./CLAUDE.md) for the AI-agent summary.
 > **Using this as a template?** Click **"Use this template"** on GitHub (or fork),
 > then make it yours:
 >
-> 1. Rename the package scope `my-sample` / `@my-sample/*` (root `package.json`,
+> 1. Rename the package scope `convex-tanstack-starter` / `@convex-tanstack-starter/*` (root `package.json`,
 >    each workspace `package.json`, and the `#/` import alias references).
 > 2. Edit or delete the author credit: the `author` block in
 >    `apps/web/src/components/landing/data.ts` and the `<SiteFooter />` component

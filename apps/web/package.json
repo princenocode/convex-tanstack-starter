@@ -1,5 +1,5 @@
 {
-  "name": "@my-sample/web",
+  "name": "@convex-tanstack-starter/web",
   "private": true,
   "type": "module",
   "imports": {
@@ -16,9 +16,9 @@
     "@convex-dev/better-auth": "^0.12.2",
     "@convex-dev/react-query": "^0.1.0",
     "@hookform/resolvers": "^5.4.0",
-    "@my-sample/backend": "workspace:*",
-    "@my-sample/shared": "workspace:*",
-    "@my-sample/ui": "workspace:*",
+    "@convex-tanstack-starter/backend": "workspace:*",
+    "@convex-tanstack-starter/shared": "workspace:*",
+    "@convex-tanstack-starter/ui": "workspace:*",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "0.10.5",
     "@tanstack/react-query": "5.101.0",
@@ -42,7 +42,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@my-sample/tsconfig": "workspace:*",
+    "@convex-tanstack-starter/tsconfig": "workspace:*",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/devtools-vite": "0.7.0",
     "@testing-library/dom": "^10.4.1",

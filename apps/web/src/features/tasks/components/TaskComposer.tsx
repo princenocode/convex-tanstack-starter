@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { createTaskSchema, type CreateTaskInput } from '@my-sample/shared';
-import { Button } from '@my-sample/ui';
+import { createTaskSchema, type CreateTaskInput } from '@convex-tanstack-starter/shared';
+import { Button } from '@convex-tanstack-starter/ui';
 
 type TaskComposerProps = {
   onCreate: (title: string) => Promise<unknown>;

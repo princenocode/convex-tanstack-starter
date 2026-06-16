@@ -1,5 +1,5 @@
 import { useMutation } from 'convex/react';
-import { api } from '@my-sample/backend/api';
+import { api } from '@convex-tanstack-starter/backend/api';
 
 // Typed Convex mutations. Authorization + validation live server-side (§12.1);
 // these are thin client bindings.
