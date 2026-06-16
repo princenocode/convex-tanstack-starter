@@ -1,0 +1,35 @@
+# Guard-rail (free-plan alternative to branch protection): this repo is a
+# private repo on the free plan, where branch protection / rulesets are not
+# available. A GitHub Action cannot *block* a push, but it can detect a direct
+# push to main by an unauthorized actor and fail loudly (red run + notification).
+# When the repo goes Pro or public, replace this with real branch protection.
+name: Guard main
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: guard-main-${{ github.sha }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    name: Verify pusher is authorized
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check actor against allowlist
+        env:
+          ACTOR: ${{ github.actor }}
+        run: |
+          # One GitHub login per line; extend here to authorize more people.
+          ALLOWED="princenocode"
+          if echo "$ALLOWED" | grep -qxF "$ACTOR"; then
+            echo "OK: '$ACTOR' is authorized to push to main."
+            exit 0
+          fi
+          echo "::error title=Unauthorized push to main::'$ACTOR' is not in the allowlist. Direct pushes to main are reserved; open a pull request instead."
+          exit 1
