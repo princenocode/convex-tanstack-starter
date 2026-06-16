@@ -41,6 +41,11 @@
       "esbuild",
       "lightningcss",
       "unrs-resolver"
-    ]
+    ],
+    "overrides": {
+      "handlebars": ">=4.7.9",
+      "esbuild": ">=0.28.1",
+      "ws": ">=8.21.0"
+    }
   }
 }
