@@ -318,6 +318,22 @@ a {
     transform 180ms ease;
 }
 
+/*
+ * Tailwind v4's preflight sets `cursor: default` on buttons. Restore the
+ * pointer cursor for every interactive element so clickable text, buttons and
+ * role="button" elements feel clickable on hover. Kept in @layer base so any
+ * explicit `cursor-*` utility still wins. Disabled controls keep their cursor.
+ */
+@layer base {
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  label[for],
+  summary,
+  a {
+    cursor: pointer;
+  }
+}
+
 .island-kicker {
   letter-spacing: 0.16em;
   text-transform: uppercase;

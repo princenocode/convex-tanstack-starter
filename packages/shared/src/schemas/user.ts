@@ -2,8 +2,10 @@ import { z } from 'zod';
 
 // Single source of truth for the app-level user shape (§6). Better Auth owns the
 // base identity (id, email, name); the fields here are the application's default
-// user schema, layered on via `additionalFields` in the backend auth config and
-// deployed with the first `pnpm bootstrap`.
+// user schema, layered on via `additionalFields` in the backend auth config
+// (packages/backend/convex/auth.options.ts) and mirrored in the vendored Better
+// Auth component schema (convex/betterAuth/schema.ts) so the component validator
+// accepts them. Changing a custom field requires updating both.
 
 // Roles a user can hold. New sign-ups default to `operator`; `admin` is granted
 // out-of-band and is never settable from the client.
