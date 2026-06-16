@@ -1,10 +1,11 @@
 import { useState, type ComponentType } from 'react';
-import { useForm, type UseFormRegisterReturn } from 'react-hook-form';
+import { useForm, type Resolver, type UseFormRegisterReturn } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff, Layers, Loader2, Lock, Mail, User } from 'lucide-react';
 import { Button } from '@my-sample/ui';
 import { signInSchema, signUpSchema, type CredentialsInput } from '../lib/schema';
 import { useAuth } from '../hooks/useAuth';
+import { PasswordStrength } from './PasswordStrength';
 
 type Mode = 'sign-in' | 'sign-up';
 
@@ -18,10 +19,16 @@ export function SignInForm() {
   const isSignUp = mode === 'sign-up';
 
   const form = useForm<CredentialsInput>({
-    // Resolver tracks the mode: sign-in skips the name requirement.
-    resolver: zodResolver(isSignUp ? signUpSchema : signInSchema),
+    // Resolver tracks the mode: sign-in skips the name requirement. The form
+    // always holds the superset of fields, so we type it as CredentialsInput.
+    resolver: zodResolver(
+      isSignUp ? signUpSchema : signInSchema,
+    ) as unknown as Resolver<CredentialsInput>,
     defaultValues: { name: '', email: '', password: '' },
   });
+
+  // Live password value drives the sign-up strength indicator.
+  const password = form.watch('password');
 
   const onSubmit = form.handleSubmit(async (values) => {
     setServerError(null);
@@ -64,9 +71,14 @@ export function SignInForm() {
           </InputWithIcon>
         </Field>
 
-        <Field label="Password" error={form.formState.errors.password?.message}>
+        <Field
+          label="Password"
+          error={isSignUp ? undefined : form.formState.errors.password?.message}
+        >
           <PasswordInput register={form.register('password')} isSignUp={isSignUp} />
         </Field>
+
+        {isSignUp && <PasswordStrength value={password} />}
 
         {serverError && (
           <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">{serverError}</p>
@@ -141,7 +153,11 @@ function PasswordInput({
         aria-label={show ? 'Hide password' : 'Show password'}
         className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--sea-ink-soft)] transition-colors hover:text-[var(--sea-ink)]"
       >
-        {show ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
+        {show ? (
+          <EyeOff className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <Eye className="h-4 w-4" aria-hidden="true" />
+        )}
       </button>
     </InputWithIcon>
   );

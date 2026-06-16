@@ -2,18 +2,17 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Button } from '@my-sample/ui';
 import { AuthBoundary, SignInForm, useAuth } from '#/features/auth';
 import { TasksPanel } from '#/features/tasks';
-import { AuthPage } from '#/components/auth-page/AuthPage';
+import { Landing } from '#/components/landing/Landing';
 
-// Routes are thin: they compose features and hold no business logic (§2). The
-// auth shell lives in components/ (a `shared` boundary that can't import
-// features), so the route injects the auth-gated pieces as slots: the sign-in
-// form when signed out, the app once signed in.
-export const Route = createFileRoute('/')({ component: Home });
+// The template showcase (stack, architecture, live demo). Thin route: it
+// composes the `Landing` shell (a `shared` boundary) with the auth-gated demo
+// and sign-out control injected as slots.
+export const Route = createFileRoute('/docs')({ component: Docs });
 
-function Home() {
+function Docs() {
   const { isAuthenticated, signOut } = useAuth();
   return (
-    <AuthPage
+    <Landing
       authControl={
         isAuthenticated ? (
           <Button variant="outline" size="sm" onClick={() => signOut()}>
@@ -21,11 +20,9 @@ function Home() {
           </Button>
         ) : null
       }
-      card={
+      demo={
         <AuthBoundary fallback={<SignInForm />}>
-          <div className="island-shell rounded-2xl p-6 sm:p-8">
-            <TasksPanel />
-          </div>
+          <TasksPanel />
         </AuthBoundary>
       }
     />

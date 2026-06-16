@@ -4,16 +4,25 @@
 export const REPO_URL = 'https://github.com/princenocode/my_sample';
 export const PROFILE_URL = 'https://github.com/princenocode';
 
+export type SocialIcon = 'github' | 'website' | 'x' | 'linkedin';
+
+// Template credit — edit these to make the template yours, or delete the whole
+// block together with <SiteFooter/> (see SiteFooter.tsx) to remove the credit.
 export const author = {
   name: 'Prince NZANZU',
   handle: '@princenocode',
-  bio: 'Low-code developer & AI enthusiast — your technical Swiss-army knife.',
+  bio: 'Product Architect | AI Agents, Automation & Software — your technical Swiss-army knife.',
   avatar: 'https://github.com/princenocode.png',
   links: [
-    { label: 'GitHub', href: PROFILE_URL },
-    { label: 'Website', href: 'https://princenocode.com' },
-    { label: 'X', href: 'https://x.com/princenocode' },
-  ],
+    { icon: 'github', label: 'GitHub', href: PROFILE_URL },
+    { icon: 'website', label: 'Website', href: 'https://princenocode.com' },
+    { icon: 'x', label: 'X', href: 'https://x.com/princenocode' },
+    {
+      icon: 'linkedin',
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/prince-nzanzu-4262151b0/',
+    },
+  ] satisfies ReadonlyArray<{ icon: SocialIcon; label: string; href: string }>,
 } as const;
 
 export const navItems = [

@@ -281,6 +281,33 @@ pre code {
   border-color: color-mix(in oklab, var(--lagoon-deep) 35%, var(--line));
 }
 
+/* Pill button / icon-button base — pairs with the global transition below so
+   hover state animates. Use for header chips and the footer social icons. */
+.chip {
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-line);
+  color: var(--sea-ink);
+}
+
+.chip:hover {
+  border-color: color-mix(in oklab, var(--lagoon-deep) 45%, var(--chip-line));
+  background: color-mix(in oklab, var(--chip-bg) 86%, var(--lagoon) 14%);
+  color: var(--sea-ink);
+  transform: translateY(-1px);
+}
+
+/* Solid primary action (e.g. "Open the app", "View on GitHub"). */
+.btn-primary {
+  background: var(--sea-ink);
+  color: var(--foam);
+}
+
+.btn-primary:hover {
+  background: color-mix(in oklab, var(--sea-ink) 84%, black 16%);
+  color: var(--foam);
+  transform: translateY(-1px);
+}
+
 button,
 .island-shell,
 a {

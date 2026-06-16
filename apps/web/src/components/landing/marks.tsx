@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { StackIcon } from './data';
+import type { SocialIcon, StackIcon } from './data';
 
 // Minimalist, single-stroke SVGs drawn to one grid (24×24, 1.6 stroke, round
 // caps) so the icon set reads as one family. Color follows `currentColor`.
@@ -50,6 +50,44 @@ export function GitHubMark({ className }: GlyphProps) {
       />
     </svg>
   );
+}
+
+export function XMark({ className }: GlyphProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.22-6.82-5.97 6.82H1.66l7.73-8.84L1.5 2.25h6.83l4.72 6.23 5.19-6.23Zm-1.16 17.52h1.83L7.01 4.13H5.04l12.04 15.64Z" />
+    </svg>
+  );
+}
+
+export function LinkedInMark({ className }: GlyphProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.74v20.52C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.74C24 .78 23.2 0 22.22 0Z" />
+    </svg>
+  );
+}
+
+export function GlobeMark({ className }: GlyphProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" {...stroke} />
+      <ellipse cx="12" cy="12" rx="4" ry="9" {...stroke} />
+      <path d="M3.5 9h17M3.5 15h17" {...stroke} />
+    </svg>
+  );
+}
+
+const socialIcons: Record<SocialIcon, (props: GlyphProps) => ReactNode> = {
+  github: GitHubMark,
+  website: GlobeMark,
+  x: XMark,
+  linkedin: LinkedInMark,
+};
+
+export function SocialMark({ icon, className }: GlyphProps & { icon: SocialIcon }) {
+  const Icon = socialIcons[icon];
+  return <Icon className={className} />;
 }
 
 function FrontendGlyph({ className }: GlyphProps) {

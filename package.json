@@ -1,6 +1,13 @@
 {
   "name": "my-sample",
+  "description": "A feature-first, type-safe full-stack starter — TanStack Start + Convex + Better Auth, with the quality guard-rails wired up. Use it as a template.",
   "private": true,
+  "license": "MIT",
+  "author": "Prince NZANZU",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/princenocode/my_sample.git"
+  },
   "type": "module",
   "packageManager": "pnpm@10.8.1",
   "engines": {
