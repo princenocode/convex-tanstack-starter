@@ -155,6 +155,7 @@ export const create = mutation({
 - All auth lives in `features/auth/` (front) + `convex/auth.ts` (back), behind a **stable public API**: `useAuth()`, `requireUser(ctx)`, `<AuthBoundary>`.
 - The rest of the code **depends only on this interface**, never on Better Auth directly.
 - Rationale: the Convex + Better Auth component is in **alpha**. This isolation makes it possible to switch to Convex Auth without a cascading refactor.
+- **Custom user fields** (e.g. `role`, §6) require a **local install** of the Better Auth component: it is vendored under `convex/betterAuth/` so its `user` table can declare the field. Adding/changing a custom field means editing **both** `convex/auth.options.ts` (`additionalFields`) **and** `convex/betterAuth/schema.ts`. After upgrading `@convex-dev/better-auth`, re-sync `convex/betterAuth/schema.ts` from the new published component schema and re-apply the custom fields.
 
 ---
 

@@ -1,43 +1,28 @@
 import { betterAuth } from 'better-auth/minimal';
 import { createClient, type GenericCtx } from '@convex-dev/better-auth';
-import { convex } from '@convex-dev/better-auth/plugins';
 import { ConvexError } from 'convex/values';
-import { DEFAULT_USER_ROLE } from '@convex-tanstack-starter/shared';
-import authConfig from './auth.config';
+import { createAuthOptions } from './auth.options';
+import schema from './betterAuth/schema';
 import { components } from './_generated/api';
 import { query } from './_generated/server';
 import type { QueryCtx, MutationCtx } from './_generated/server';
 import type { DataModel } from './_generated/dataModel';
 
-const siteUrl = process.env.SITE_URL!;
+// The component client — the only object the rest of the backend touches. It is
+// bound to the LOCAL (vendored) component schema so the user document it returns
+// carries the app-level `role` field (§6, ./betterAuth/schema.ts).
+export const authComponent = createClient<DataModel, typeof schema>(components.betterAuth, {
+  local: { schema },
+});
 
-// The component client — the only object the rest of the backend touches.
-export const authComponent = createClient<DataModel>(components.betterAuth);
-
-// Builds the Better Auth instance bound to the current Convex context.
+// Builds the Better Auth instance bound to the current Convex context. The
+// static options (incl. the server-controlled `role` additionalField) live in
+// ./auth.options.ts so the vendored component can reuse them; `database` is the
+// only per-request piece layered on here.
 export const createAuth = (ctx: GenericCtx<DataModel>) =>
   betterAuth({
-    baseURL: siteUrl,
+    ...createAuthOptions(),
     database: authComponent.adapter(ctx),
-    emailAndPassword: {
-      enabled: true,
-      requireEmailVerification: false,
-    },
-    // Default user schema (§6): every account carries an app-level `role`.
-    // `input: false` keeps it server-controlled — the client can never set or
-    // escalate it at sign-up; new users default to `operator`. This schema is
-    // deployed to the Convex component on the first `pnpm bootstrap`.
-    user: {
-      additionalFields: {
-        role: {
-          type: 'string',
-          required: false,
-          input: false,
-          defaultValue: DEFAULT_USER_ROLE,
-        },
-      },
-    },
-    plugins: [convex({ authConfig })],
   });
 
 // Public query the client reads to know who is signed in. Returns `null` when
