@@ -27,7 +27,7 @@ A feature is autonomous. **Hard rules (enforced by ESLint `boundaries`):**
 
 1. Import another feature only through its public `index.ts` — never an internal file.
 2. Routes are thin: they compose features, they hold no business logic.
-3. The frontend touches Convex only via the generated API (`@my-sample/backend/api`),
+3. The frontend touches Convex only via the generated API (`@convex-tanstack-starter/backend/api`),
    never backend internals (`model.ts`, helpers).
 4. No backend logic in the frontend: validation, authorization, writes → Convex functions.
 

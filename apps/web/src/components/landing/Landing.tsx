@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
+import { Link } from '@tanstack/react-router';
 import { ArchitectureDiagram } from './architecture';
 import { BrandMark, GitHubMark, stackIcons } from './marks';
-import { REPO_URL, author, bootstrapLines, navItems, stack } from './data';
+import { SiteFooter } from './SiteFooter';
+import { REPO_URL, bootstrapLines, stack } from './data';
 
 // Presentational landing page. Lives under components/ (a `shared` boundary), so
 // it never imports features directly — the route injects the auth-gated `demo`
@@ -33,29 +35,29 @@ function SiteHeader({ authControl }: { authControl?: ReactNode }) {
       style={{ background: 'var(--header-bg)', borderColor: 'var(--line)' }}
     >
       <div className="page-wrap flex h-16 items-center justify-between gap-4">
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="flex items-center gap-2.5 no-underline"
           style={{ color: 'var(--sea-ink)' }}
         >
           <BrandMark className="h-7 w-7" />
-          <span className="display-title text-lg font-bold tracking-tight">my-sample</span>
-        </a>
-
-        <nav className="hidden items-center gap-7 text-sm font-medium sm:flex">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="nav-link">
-              {item.label}
-            </a>
-          ))}
-        </nav>
+          <span className="display-title text-lg font-bold tracking-tight">
+            convex-tanstack-starter
+          </span>
+        </Link>
 
         <div className="flex items-center gap-3">
           {authControl}
-          <Chip href={REPO_URL} ariaLabel="View my-sample on GitHub">
+          <Chip href={REPO_URL} ariaLabel="View convex-tanstack-starter on GitHub">
             <GitHubMark className="h-4 w-4" />
             <span className="hidden sm:inline">GitHub</span>
           </Chip>
+          <Link
+            to="/"
+            className="btn-primary inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          >
+            Open the app
+          </Link>
         </div>
       </div>
     </header>
@@ -210,46 +212,6 @@ function DemoSection({ demo }: { demo: ReactNode }) {
   );
 }
 
-function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="page-wrap flex flex-col items-start justify-between gap-6 py-10 sm:flex-row sm:items-center">
-        <div className="flex items-center gap-4">
-          <img
-            src={author.avatar}
-            alt={author.name}
-            width={48}
-            height={48}
-            className="h-12 w-12 rounded-full"
-            style={{ border: '1px solid var(--line)' }}
-          />
-          <div className="flex flex-col">
-            <span className="font-semibold" style={{ color: 'var(--sea-ink)' }}>
-              Built by {author.name}
-            </span>
-            <span className="text-sm" style={{ color: 'var(--sea-ink-soft)' }}>
-              {author.bio}
-            </span>
-          </div>
-        </div>
-        <nav className="flex items-center gap-4 text-sm font-medium">
-          {author.links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="nav-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </footer>
-  );
-}
-
 // --- small shared atoms -----------------------------------------------------
 
 function SectionHeading({
@@ -278,8 +240,7 @@ function PrimaryLink({ href, children }: { href: string; children: ReactNode }) 
   return (
     <a
       href={href}
-      className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-      style={{ background: 'var(--sea-ink)', color: 'var(--foam)' }}
+      className="btn-primary inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
     >
       {children}
     </a>
@@ -301,12 +262,7 @@ function Chip({
       aria-label={ariaLabel}
       target={href.startsWith('#') ? undefined : '_blank'}
       rel={href.startsWith('#') ? undefined : 'noreferrer'}
-      className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-      style={{
-        background: 'var(--chip-bg)',
-        border: '1px solid var(--chip-line)',
-        color: 'var(--sea-ink)',
-      }}
+      className="chip inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
     >
       {children}
     </a>

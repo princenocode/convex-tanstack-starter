@@ -1,5 +1,5 @@
 {
-  "name": "@my-sample/eslint-config",
+  "name": "@convex-tanstack-starter/eslint-config",
   "version": "0.0.0",
   "private": true,
   "type": "module",

@@ -1,4 +1,4 @@
-import type { CreateTaskInput } from '@my-sample/shared';
+import type { CreateTaskInput } from '@convex-tanstack-starter/shared';
 
 // Pure business logic (§5): no DB access, fully unit-testable. The handler
 // orchestrates; this builds the row.

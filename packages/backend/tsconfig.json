@@ -1,5 +1,5 @@
 {
-  "extends": "@my-sample/tsconfig/node.json",
+  "extends": "@convex-tanstack-starter/tsconfig/node.json",
   "include": ["convex/**/*.ts"],
   "exclude": ["convex/_generated"]
 }

@@ -1,4 +1,4 @@
-# my_sample
+# convex-tanstack-starter
 
 A feature-first monorepo template: **TanStack Start** (React) on **Convex**
 (realtime backend/DB), authenticated with **Better Auth** (`@convex-dev/better-auth`),
@@ -6,6 +6,21 @@ with shadcn/ui, Zod, React Hook Form, and a full quality/CI guard-rail layer.
 
 See [`docs/GUIDELINES.md`](./docs/GUIDELINES.md) for the authoritative architecture and
 rules, and [`CLAUDE.md`](./CLAUDE.md) for the AI-agent summary.
+
+> **Using this as a template?** Click **"Use this template"** on GitHub (or fork),
+> then make it yours:
+>
+> 1. Rename the package scope `convex-tanstack-starter` / `@convex-tanstack-starter/*` (root `package.json`,
+>    each workspace `package.json`, and the `#/` import alias references).
+> 2. Edit or delete the author credit: the `author` block in
+>    `apps/web/src/components/landing/data.ts` and the `<SiteFooter />` component
+>    (`apps/web/src/components/landing/SiteFooter.tsx`) — both are isolated and
+>    safe to remove.
+> 3. Update `LICENSE`, `SECURITY.md`, and the `repository` URL in `package.json`.
+> 4. Run `pnpm bootstrap` to provision your own Convex deployment.
+>
+> The default route `/` is the sign-in / sign-up page; the template showcase
+> (stack, architecture, live demo) lives at `/docs`.
 
 ## Stack
 

@@ -1,5 +1,5 @@
 {
-  "extends": "@my-sample/tsconfig/react.json",
+  "extends": "@convex-tanstack-starter/tsconfig/react.json",
   "compilerOptions": {
     "types": []
   },

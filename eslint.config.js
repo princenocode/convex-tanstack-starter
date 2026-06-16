@@ -2,7 +2,7 @@
 // editor-friendly, and works with lint-staged from the repo root).
 //   - apps/web      → React preset + feature-isolation boundaries (§2)
 //   - packages/**   → TypeScript base preset
-import { base, react, featureBoundaries, ignores } from '@my-sample/eslint-config';
+import { base, react, featureBoundaries, ignores } from '@convex-tanstack-starter/eslint-config';
 
 export default [
   ignores,

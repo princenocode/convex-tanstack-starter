@@ -1,5 +1,5 @@
-import type { Doc, Id } from '@my-sample/backend/dataModel';
-import { Button } from '@my-sample/ui';
+import type { Doc, Id } from '@convex-tanstack-starter/backend/dataModel';
+import { Button } from '@convex-tanstack-starter/ui';
 
 type TaskListProps = {
   tasks: Doc<'tasks'>[];

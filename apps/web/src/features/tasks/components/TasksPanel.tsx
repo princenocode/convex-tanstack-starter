@@ -1,4 +1,4 @@
-import { Spinner } from '@my-sample/ui';
+import { Spinner } from '@convex-tanstack-starter/ui';
 import { useTasksController } from '../hooks/useTasksController';
 import { TaskComposer } from './TaskComposer';
 import { TaskList } from './TaskList';

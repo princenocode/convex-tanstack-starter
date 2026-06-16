@@ -28,7 +28,7 @@ generalize early. `docs/GUIDELINES.md` (§1, §2, §12) is the authoritative ref
 - A feature imports another feature only through its public `index.ts`
   (`eslint-plugin-boundaries`). Never reach into another feature's internals.
 - Routes are thin: they compose features and hold no business logic.
-- The frontend touches Convex only via the generated API (`@my-sample/backend/api`),
+- The frontend touches Convex only via the generated API (`@convex-tanstack-starter/backend/api`),
   never backend internals (`model.ts`, helpers).
 - Files stay under 500 lines (`max-lines`, hard), aim 200–250; functions ~80 lines.
 
@@ -43,6 +43,6 @@ generalize early. `docs/GUIDELINES.md` (§1, §2, §12) is the authoritative ref
 ## How to apply
 
 Before adding an abstraction, ask: is there a third real usage yet? If not, inline it.
-Before adding a file, ask: does an existing utility (`@my-sample/ui`, `@my-sample/shared`,
+Before adding a file, ask: does an existing utility (`@convex-tanstack-starter/ui`, `@convex-tanstack-starter/shared`,
 `requireUser`) already cover this? Reuse it. When the diff only needs to change what was
 asked, don't refactor the surroundings.

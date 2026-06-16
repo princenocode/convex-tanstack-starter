@@ -1,4 +1,4 @@
-import type { Id } from '@my-sample/backend/dataModel';
+import type { Id } from '@convex-tanstack-starter/backend/dataModel';
 import { useTasks } from '../api/useTasks';
 import { useCreateTask, useRemoveTask, useSetTaskCompleted } from '../api/useTaskMutations';
 
