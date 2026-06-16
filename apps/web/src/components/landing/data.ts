@@ -25,12 +25,6 @@ export const author = {
   ] satisfies ReadonlyArray<{ icon: SocialIcon; label: string; href: string }>,
 } as const;
 
-export const navItems = [
-  { label: 'Stack', href: '#stack' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Demo', href: '#demo' },
-] as const;
-
 // The one-command setup the hero terminal replays (mirrors `pnpm bootstrap`).
 export const bootstrapLines = [
   { kind: 'cmd', text: 'pnpm bootstrap' },

@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { ArchitectureDiagram } from './architecture';
 import { BrandMark, GitHubMark, stackIcons } from './marks';
 import { SiteFooter } from './SiteFooter';
-import { REPO_URL, bootstrapLines, navItems, stack } from './data';
+import { REPO_URL, bootstrapLines, stack } from './data';
 
 // Presentational landing page. Lives under components/ (a `shared` boundary), so
 // it never imports features directly — the route injects the auth-gated `demo`
@@ -43,14 +43,6 @@ function SiteHeader({ authControl }: { authControl?: ReactNode }) {
           <BrandMark className="h-7 w-7" />
           <span className="display-title text-lg font-bold tracking-tight">my-sample</span>
         </Link>
-
-        <nav className="hidden items-center gap-7 text-sm font-medium sm:flex">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="nav-link">
-              {item.label}
-            </a>
-          ))}
-        </nav>
 
         <div className="flex items-center gap-3">
           {authControl}
