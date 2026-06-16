@@ -12,6 +12,9 @@ export const Route = createFileRoute('/')({ component: Home });
 
 function Home() {
   const { isAuthenticated, signOut } = useAuth();
+  // SSR-known session state, so the boundary renders the right slot on the
+  // first client paint instead of flashing a spinner (see AuthBoundary).
+  const { token } = Route.useRouteContext();
   return (
     <AuthPage
       authControl={
@@ -22,7 +25,7 @@ function Home() {
         ) : null
       }
       card={
-        <AuthBoundary fallback={<SignInForm />}>
+        <AuthBoundary fallback={<SignInForm />} initiallyAuthenticated={Boolean(token)}>
           <div className="island-shell rounded-2xl p-6 sm:p-8">
             <TasksPanel />
           </div>
